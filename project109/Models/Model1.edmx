@@ -1,0 +1,559 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="msaadtestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="authors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="author_name" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="books">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="book_Title" Type="nvarchar" MaxLength="2000" />
+          <Property Name="price" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="author_id" Type="int" />
+          <Property Name="sold_by" Type="int" />
+          <Property Name="publisher_id" Type="int" />
+          <Property Name="publishing_year" Type="int" />
+          <Property Name="stock" Type="varchar" MaxLength="1" />
+          <Property Name="book_cover" Type="nvarchar" MaxLength="2000" />
+          <Property Name="book_softcopy" Type="nvarchar" MaxLength="2000" />
+          <Property Name="date_insert" Type="datetime" />
+          <Property Name="last_update" Type="datetime" />
+          <Property Name="active" Type="bit" />
+          <Property Name="book_language" Type="nvarchar" MaxLength="50" />
+          <Property Name="book_cat" Type="int" />
+        </EntityType>
+        <EntityType Name="books_categories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cat_name" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="orders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="order_date" Type="datetime" />
+          <Property Name="buyer_id" Type="int" />
+          <Property Name="vendor_id" Type="int" />
+          <Property Name="book_id" Type="int" />
+          <Property Name="qty" Type="int" />
+          <Property Name="done_sel" Type="bit" />
+          <Property Name="deal_date" Type="datetime" />
+          <Property Name="canceled" Type="bit" />
+        </EntityType>
+        <EntityType Name="publishers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="publisher_name" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="users_types">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type_name" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="UsersAdmins">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RealName" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Title" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Email" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Username" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Password" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsAdmin" Type="bit" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="500" />
+          <Property Name="Address" Type="nvarchar" MaxLength="1000" />
+          <Property Name="UserType" Type="int" />
+          <Property Name="date_insert" Type="datetime" />
+          <Property Name="last_update" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'msaadtest.dbo.view_books' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_books">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="book_Title" Type="nvarchar" MaxLength="2000" />
+          <Property Name="price" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="author_id" Type="int" />
+          <Property Name="sold_by" Type="int" />
+          <Property Name="publisher_id" Type="int" />
+          <Property Name="publishing_year" Type="int" />
+          <Property Name="stock" Type="varchar" MaxLength="1" />
+          <Property Name="book_cover" Type="nvarchar" MaxLength="2000" />
+          <Property Name="book_softcopy" Type="nvarchar" MaxLength="2000" />
+          <Property Name="date_insert" Type="datetime" />
+          <Property Name="active" Type="bit" />
+          <Property Name="book_language" Type="nvarchar" MaxLength="50" />
+          <Property Name="author_name" Type="nvarchar" MaxLength="500" />
+          <Property Name="RealName" Type="nvarchar" MaxLength="1000" />
+          <Property Name="publisher_name" Type="nvarchar" MaxLength="1000" />
+          <Property Name="last_update" Type="datetime" />
+          <Property Name="book_cat" Type="int" />
+          <Property Name="cat_name" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'msaadtest.dbo.view_orders' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_orders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="order_date" Type="datetime" />
+          <Property Name="buyer_id" Type="int" />
+          <Property Name="vendor_id" Type="int" />
+          <Property Name="book_id" Type="int" />
+          <Property Name="qty" Type="int" />
+          <Property Name="done_sel" Type="bit" />
+          <Property Name="deal_date" Type="datetime" />
+          <Property Name="canceled" Type="bit" />
+          <Property Name="buyername" Type="nvarchar" MaxLength="1000" />
+          <Property Name="book_Title" Type="nvarchar" MaxLength="2000" />
+          <Property Name="price" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="vendorname" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'msaadtest.dbo.view_users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="RealName" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Title" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Email" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Username" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Password" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsAdmin" Type="bit" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="500" />
+          <Property Name="Address" Type="nvarchar" MaxLength="1000" />
+          <Property Name="UserType" Type="int" />
+          <Property Name="date_insert" Type="datetime" />
+          <Property Name="last_update" Type="datetime" />
+          <Property Name="type_name" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <EntityContainer Name="msaadtestModelStoreContainer">
+          <EntitySet Name="authors" EntityType="Self.authors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="books" EntityType="Self.books" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="books_categories" EntityType="Self.books_categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="orders" EntityType="Self.orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="publishers" EntityType="Self.publishers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users_types" EntityType="Self.users_types" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsersAdmins" EntityType="Self.UsersAdmins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="view_books" EntityType="Self.view_books" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [view_books].[Id] AS [Id], 
+    [view_books].[book_Title] AS [book_Title], 
+    [view_books].[price] AS [price], 
+    [view_books].[author_id] AS [author_id], 
+    [view_books].[sold_by] AS [sold_by], 
+    [view_books].[publisher_id] AS [publisher_id], 
+    [view_books].[publishing_year] AS [publishing_year], 
+    [view_books].[stock] AS [stock], 
+    [view_books].[book_cover] AS [book_cover], 
+    [view_books].[book_softcopy] AS [book_softcopy], 
+    [view_books].[date_insert] AS [date_insert], 
+    [view_books].[active] AS [active], 
+    [view_books].[book_language] AS [book_language], 
+    [view_books].[author_name] AS [author_name], 
+    [view_books].[RealName] AS [RealName], 
+    [view_books].[publisher_name] AS [publisher_name], 
+    [view_books].[last_update] AS [last_update], 
+    [view_books].[book_cat] AS [book_cat], 
+    [view_books].[cat_name] AS [cat_name]
+    FROM [dbo].[view_books] AS [view_books]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="view_orders" EntityType="Self.view_orders" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [view_orders].[Id] AS [Id], 
+    [view_orders].[order_date] AS [order_date], 
+    [view_orders].[buyer_id] AS [buyer_id], 
+    [view_orders].[vendor_id] AS [vendor_id], 
+    [view_orders].[book_id] AS [book_id], 
+    [view_orders].[qty] AS [qty], 
+    [view_orders].[done_sel] AS [done_sel], 
+    [view_orders].[deal_date] AS [deal_date], 
+    [view_orders].[canceled] AS [canceled], 
+    [view_orders].[buyername] AS [buyername], 
+    [view_orders].[book_Title] AS [book_Title], 
+    [view_orders].[price] AS [price], 
+    [view_orders].[vendorname] AS [vendorname]
+    FROM [dbo].[view_orders] AS [view_orders]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="view_users" EntityType="Self.view_users" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [view_users].[Id] AS [Id], 
+    [view_users].[RealName] AS [RealName], 
+    [view_users].[Title] AS [Title], 
+    [view_users].[Email] AS [Email], 
+    [view_users].[Username] AS [Username], 
+    [view_users].[Password] AS [Password], 
+    [view_users].[IsAdmin] AS [IsAdmin], 
+    [view_users].[Active] AS [Active], 
+    [view_users].[Phone] AS [Phone], 
+    [view_users].[Address] AS [Address], 
+    [view_users].[UserType] AS [UserType], 
+    [view_users].[date_insert] AS [date_insert], 
+    [view_users].[last_update] AS [last_update], 
+    [view_users].[type_name] AS [type_name]
+    FROM [dbo].[view_users] AS [view_users]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="msaadtestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="authors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="author_name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="books">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="book_Title" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="author_id" Type="Int32" />
+          <Property Name="sold_by" Type="Int32" />
+          <Property Name="publisher_id" Type="Int32" />
+          <Property Name="publishing_year" Type="Int32" />
+          <Property Name="stock" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="book_cover" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="book_softcopy" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="date_insert" Type="DateTime" Precision="3" />
+          <Property Name="last_update" Type="DateTime" Precision="3" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="book_language" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="book_cat" Type="Int32" />
+        </EntityType>
+        <EntityType Name="orders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="order_date" Type="DateTime" Precision="3" />
+          <Property Name="buyer_id" Type="Int32" />
+          <Property Name="vendor_id" Type="Int32" />
+          <Property Name="book_id" Type="Int32" />
+          <Property Name="qty" Type="Int32" />
+          <Property Name="done_sel" Type="Boolean" />
+          <Property Name="deal_date" Type="DateTime" Precision="3" />
+          <Property Name="canceled" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="publishers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="publisher_name" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="users_types">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UsersAdmins">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RealName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsAdmin" Type="Boolean" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Phone" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="UserType" Type="Int32" />
+          <Property Name="date_insert" Type="DateTime" Precision="3" />
+          <Property Name="last_update" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="view_books">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="book_Title" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="author_id" Type="Int32" />
+          <Property Name="sold_by" Type="Int32" />
+          <Property Name="publisher_id" Type="Int32" />
+          <Property Name="publishing_year" Type="Int32" />
+          <Property Name="stock" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="book_cover" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="book_softcopy" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="date_insert" Type="DateTime" Precision="3" />
+          <Property Name="last_update" Type="DateTime" Precision="3" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="book_language" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="author_name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="RealName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="publisher_name" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="book_cat" Type="Int32" />
+          <Property Name="cat_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="view_orders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="order_date" Type="DateTime" Precision="3" />
+          <Property Name="buyer_id" Type="Int32" />
+          <Property Name="vendor_id" Type="Int32" />
+          <Property Name="book_id" Type="Int32" />
+          <Property Name="qty" Type="Int32" />
+          <Property Name="done_sel" Type="Boolean" />
+          <Property Name="deal_date" Type="DateTime" Precision="3" />
+          <Property Name="canceled" Type="Boolean" />
+          <Property Name="buyername" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="book_Title" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="vendorname" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="view_users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="RealName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsAdmin" Type="Boolean" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Phone" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="UserType" Type="Int32" />
+          <Property Name="date_insert" Type="DateTime" Precision="3" />
+          <Property Name="last_update" Type="DateTime" Precision="3" />
+          <Property Name="type_name" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="msaadtestEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="authors" EntityType="Self.authors" />
+          <EntitySet Name="books" EntityType="Self.books" />
+          <EntitySet Name="orders" EntityType="Self.orders" />
+          <EntitySet Name="publishers" EntityType="Self.publishers" />
+          <EntitySet Name="users_types" EntityType="Self.users_types" />
+          <EntitySet Name="UsersAdmins" EntityType="Self.UsersAdmins" />
+          <EntitySet Name="view_books" EntityType="Self.view_books" />
+          <EntitySet Name="view_orders" EntityType="Self.view_orders" />
+          <EntitySet Name="view_users" EntityType="Self.view_users" />
+          <EntitySet Name="books_categories" EntityType="msaadtestModel.books_categories" />
+        </EntityContainer>
+        <EntityType Name="books_categories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cat_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="msaadtestModelStoreContainer" CdmEntityContainer="msaadtestEntities">
+          <EntitySetMapping Name="authors">
+            <EntityTypeMapping TypeName="msaadtestModel.authors">
+              <MappingFragment StoreEntitySet="authors">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="author_name" ColumnName="author_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="books">
+            <EntityTypeMapping TypeName="msaadtestModel.books">
+              <MappingFragment StoreEntitySet="books">
+                <ScalarProperty Name="book_cat" ColumnName="book_cat" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="book_Title" ColumnName="book_Title" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="author_id" ColumnName="author_id" />
+                <ScalarProperty Name="sold_by" ColumnName="sold_by" />
+                <ScalarProperty Name="publisher_id" ColumnName="publisher_id" />
+                <ScalarProperty Name="publishing_year" ColumnName="publishing_year" />
+                <ScalarProperty Name="stock" ColumnName="stock" />
+                <ScalarProperty Name="book_cover" ColumnName="book_cover" />
+                <ScalarProperty Name="book_softcopy" ColumnName="book_softcopy" />
+                <ScalarProperty Name="date_insert" ColumnName="date_insert" />
+                <ScalarProperty Name="last_update" ColumnName="last_update" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="book_language" ColumnName="book_language" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orders">
+            <EntityTypeMapping TypeName="msaadtestModel.orders">
+              <MappingFragment StoreEntitySet="orders">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="order_date" ColumnName="order_date" />
+                <ScalarProperty Name="buyer_id" ColumnName="buyer_id" />
+                <ScalarProperty Name="vendor_id" ColumnName="vendor_id" />
+                <ScalarProperty Name="book_id" ColumnName="book_id" />
+                <ScalarProperty Name="qty" ColumnName="qty" />
+                <ScalarProperty Name="done_sel" ColumnName="done_sel" />
+                <ScalarProperty Name="deal_date" ColumnName="deal_date" />
+                <ScalarProperty Name="canceled" ColumnName="canceled" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="publishers">
+            <EntityTypeMapping TypeName="msaadtestModel.publishers">
+              <MappingFragment StoreEntitySet="publishers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="publisher_name" ColumnName="publisher_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users_types">
+            <EntityTypeMapping TypeName="msaadtestModel.users_types">
+              <MappingFragment StoreEntitySet="users_types">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="type_name" ColumnName="type_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsersAdmins">
+            <EntityTypeMapping TypeName="msaadtestModel.UsersAdmins">
+              <MappingFragment StoreEntitySet="UsersAdmins">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RealName" ColumnName="RealName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="date_insert" ColumnName="date_insert" />
+                <ScalarProperty Name="last_update" ColumnName="last_update" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_books">
+            <EntityTypeMapping TypeName="msaadtestModel.view_books">
+              <MappingFragment StoreEntitySet="view_books">
+                <ScalarProperty Name="cat_name" ColumnName="cat_name" />
+                <ScalarProperty Name="book_cat" ColumnName="book_cat" />
+                <ScalarProperty Name="publisher_name" ColumnName="publisher_name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="book_Title" ColumnName="book_Title" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="author_id" ColumnName="author_id" />
+                <ScalarProperty Name="sold_by" ColumnName="sold_by" />
+                <ScalarProperty Name="publisher_id" ColumnName="publisher_id" />
+                <ScalarProperty Name="publishing_year" ColumnName="publishing_year" />
+                <ScalarProperty Name="stock" ColumnName="stock" />
+                <ScalarProperty Name="book_cover" ColumnName="book_cover" />
+                <ScalarProperty Name="book_softcopy" ColumnName="book_softcopy" />
+                <ScalarProperty Name="date_insert" ColumnName="date_insert" />
+                <ScalarProperty Name="last_update" ColumnName="last_update" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="book_language" ColumnName="book_language" />
+                <ScalarProperty Name="author_name" ColumnName="author_name" />
+                <ScalarProperty Name="RealName" ColumnName="RealName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_orders">
+            <EntityTypeMapping TypeName="msaadtestModel.view_orders">
+              <MappingFragment StoreEntitySet="view_orders">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="order_date" ColumnName="order_date" />
+                <ScalarProperty Name="buyer_id" ColumnName="buyer_id" />
+                <ScalarProperty Name="vendor_id" ColumnName="vendor_id" />
+                <ScalarProperty Name="book_id" ColumnName="book_id" />
+                <ScalarProperty Name="qty" ColumnName="qty" />
+                <ScalarProperty Name="done_sel" ColumnName="done_sel" />
+                <ScalarProperty Name="deal_date" ColumnName="deal_date" />
+                <ScalarProperty Name="canceled" ColumnName="canceled" />
+                <ScalarProperty Name="buyername" ColumnName="buyername" />
+                <ScalarProperty Name="book_Title" ColumnName="book_Title" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="vendorname" ColumnName="vendorname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_users">
+            <EntityTypeMapping TypeName="msaadtestModel.view_users">
+              <MappingFragment StoreEntitySet="view_users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RealName" ColumnName="RealName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="date_insert" ColumnName="date_insert" />
+                <ScalarProperty Name="last_update" ColumnName="last_update" />
+                <ScalarProperty Name="type_name" ColumnName="type_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="books_categories">
+            <EntityTypeMapping TypeName="msaadtestModel.books_categories">
+              <MappingFragment StoreEntitySet="books_categories">
+                <ScalarProperty Name="cat_name" ColumnName="cat_name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

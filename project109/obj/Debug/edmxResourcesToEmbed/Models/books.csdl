@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="msaadtestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="authors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="author_name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="books">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="book_Title" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="author_id" Type="Int32" />
+    <Property Name="sold_by" Type="Int32" />
+    <Property Name="publisher_id" Type="Int32" />
+    <Property Name="publishing_year" Type="Int32" />
+    <Property Name="stock" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="book_cover" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="book_softcopy" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="date_insert" Type="DateTime" Precision="3" />
+    <Property Name="last_update" Type="DateTime" Precision="3" />
+    <Property Name="active" Type="Boolean" />
+    <Property Name="book_language" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="orders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="order_date" Type="DateTime" Precision="3" />
+    <Property Name="buyer_id" Type="Int32" />
+    <Property Name="vendor_id" Type="Int32" />
+    <Property Name="book_id" Type="Int32" />
+    <Property Name="qty" Type="Int32" />
+    <Property Name="done_sel" Type="Boolean" />
+    <Property Name="deal_date" Type="DateTime" Precision="3" />
+    <Property Name="canceled" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="publishers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="publisher_name" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="users_types">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="type_name" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="UsersAdmins">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RealName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="IsAdmin" Type="Boolean" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Phone" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="UserType" Type="Int32" />
+    <Property Name="date_insert" Type="DateTime" Precision="3" />
+    <Property Name="last_update" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="view_books">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="book_Title" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="author_id" Type="Int32" />
+    <Property Name="sold_by" Type="Int32" />
+    <Property Name="publisher_id" Type="Int32" />
+    <Property Name="publishing_year" Type="Int32" />
+    <Property Name="stock" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="book_cover" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="book_softcopy" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="date_insert" Type="DateTime" Precision="3" />
+    <Property Name="last_update" Type="DateTime" Precision="3" />
+    <Property Name="active" Type="Boolean" />
+    <Property Name="book_language" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="author_name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="RealName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="view_orders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="order_date" Type="DateTime" Precision="3" />
+    <Property Name="buyer_id" Type="Int32" />
+    <Property Name="vendor_id" Type="Int32" />
+    <Property Name="book_id" Type="Int32" />
+    <Property Name="qty" Type="Int32" />
+    <Property Name="done_sel" Type="Boolean" />
+    <Property Name="deal_date" Type="DateTime" Precision="3" />
+    <Property Name="canceled" Type="Boolean" />
+    <Property Name="buyername" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="book_Title" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="vendorname" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="view_users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="RealName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="IsAdmin" Type="Boolean" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Phone" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="UserType" Type="Int32" />
+    <Property Name="date_insert" Type="DateTime" Precision="3" />
+    <Property Name="last_update" Type="DateTime" Precision="3" />
+    <Property Name="type_name" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="msaadtestEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="authors" EntityType="Self.authors" />
+    <EntitySet Name="books" EntityType="Self.books" />
+    <EntitySet Name="orders" EntityType="Self.orders" />
+    <EntitySet Name="publishers" EntityType="Self.publishers" />
+    <EntitySet Name="users_types" EntityType="Self.users_types" />
+    <EntitySet Name="UsersAdmins" EntityType="Self.UsersAdmins" />
+    <EntitySet Name="view_books" EntityType="Self.view_books" />
+    <EntitySet Name="view_orders" EntityType="Self.view_orders" />
+    <EntitySet Name="view_users" EntityType="Self.view_users" />
+  </EntityContainer>
+</Schema>

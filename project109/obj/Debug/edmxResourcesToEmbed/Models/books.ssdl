@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="msaadtestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="authors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="author_name" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="books">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="book_Title" Type="nvarchar" MaxLength="2000" />
+    <Property Name="price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="author_id" Type="int" />
+    <Property Name="sold_by" Type="int" />
+    <Property Name="publisher_id" Type="int" />
+    <Property Name="publishing_year" Type="int" />
+    <Property Name="stock" Type="varchar" MaxLength="1" />
+    <Property Name="book_cover" Type="nvarchar" MaxLength="2000" />
+    <Property Name="book_softcopy" Type="nvarchar" MaxLength="2000" />
+    <Property Name="date_insert" Type="datetime" />
+    <Property Name="last_update" Type="datetime" />
+    <Property Name="active" Type="bit" />
+    <Property Name="book_language" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="orders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="order_date" Type="datetime" />
+    <Property Name="buyer_id" Type="int" />
+    <Property Name="vendor_id" Type="int" />
+    <Property Name="book_id" Type="int" />
+    <Property Name="qty" Type="int" />
+    <Property Name="done_sel" Type="bit" />
+    <Property Name="deal_date" Type="datetime" />
+    <Property Name="canceled" Type="bit" />
+  </EntityType>
+  <EntityType Name="publishers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="publisher_name" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="users_types">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type_name" Type="nvarchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="UsersAdmins">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RealName" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Title" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Email" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Username" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Password" Type="nvarchar" MaxLength="1000" />
+    <Property Name="IsAdmin" Type="bit" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="500" />
+    <Property Name="Address" Type="nvarchar" MaxLength="1000" />
+    <Property Name="UserType" Type="int" />
+    <Property Name="date_insert" Type="datetime" />
+    <Property Name="last_update" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'msaadtest.dbo.view_books' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="view_books">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="book_Title" Type="nvarchar" MaxLength="2000" />
+    <Property Name="price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="author_id" Type="int" />
+    <Property Name="sold_by" Type="int" />
+    <Property Name="publisher_id" Type="int" />
+    <Property Name="publishing_year" Type="int" />
+    <Property Name="stock" Type="varchar" MaxLength="1" />
+    <Property Name="book_cover" Type="nvarchar" MaxLength="2000" />
+    <Property Name="book_softcopy" Type="nvarchar" MaxLength="2000" />
+    <Property Name="date_insert" Type="datetime" />
+    <Property Name="last_update" Type="datetime" />
+    <Property Name="active" Type="bit" />
+    <Property Name="book_language" Type="nvarchar" MaxLength="50" />
+    <Property Name="author_name" Type="nvarchar" MaxLength="500" />
+    <Property Name="RealName" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'msaadtest.dbo.view_orders' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="view_orders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="order_date" Type="datetime" />
+    <Property Name="buyer_id" Type="int" />
+    <Property Name="vendor_id" Type="int" />
+    <Property Name="book_id" Type="int" />
+    <Property Name="qty" Type="int" />
+    <Property Name="done_sel" Type="bit" />
+    <Property Name="deal_date" Type="datetime" />
+    <Property Name="canceled" Type="bit" />
+    <Property Name="buyername" Type="nvarchar" MaxLength="1000" />
+    <Property Name="book_Title" Type="nvarchar" MaxLength="2000" />
+    <Property Name="price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="vendorname" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'msaadtest.dbo.view_users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="view_users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="RealName" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Title" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Email" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Username" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Password" Type="nvarchar" MaxLength="1000" />
+    <Property Name="IsAdmin" Type="bit" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="500" />
+    <Property Name="Address" Type="nvarchar" MaxLength="1000" />
+    <Property Name="UserType" Type="int" />
+    <Property Name="date_insert" Type="datetime" />
+    <Property Name="last_update" Type="datetime" />
+    <Property Name="type_name" Type="nvarchar" MaxLength="1" />
+  </EntityType>
+  <EntityContainer Name="msaadtestModelStoreContainer">
+    <EntitySet Name="authors" EntityType="Self.authors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="books" EntityType="Self.books" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="orders" EntityType="Self.orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="publishers" EntityType="Self.publishers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users_types" EntityType="Self.users_types" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsersAdmins" EntityType="Self.UsersAdmins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="view_books" EntityType="Self.view_books" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [view_books].[Id] AS [Id], 
+    [view_books].[book_Title] AS [book_Title], 
+    [view_books].[price] AS [price], 
+    [view_books].[author_id] AS [author_id], 
+    [view_books].[sold_by] AS [sold_by], 
+    [view_books].[publisher_id] AS [publisher_id], 
+    [view_books].[publishing_year] AS [publishing_year], 
+    [view_books].[stock] AS [stock], 
+    [view_books].[book_cover] AS [book_cover], 
+    [view_books].[book_softcopy] AS [book_softcopy], 
+    [view_books].[date_insert] AS [date_insert], 
+    [view_books].[last_update] AS [last_update], 
+    [view_books].[active] AS [active], 
+    [view_books].[book_language] AS [book_language], 
+    [view_books].[author_name] AS [author_name], 
+    [view_books].[RealName] AS [RealName]
+    FROM [dbo].[view_books] AS [view_books]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="view_orders" EntityType="Self.view_orders" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [view_orders].[Id] AS [Id], 
+    [view_orders].[order_date] AS [order_date], 
+    [view_orders].[buyer_id] AS [buyer_id], 
+    [view_orders].[vendor_id] AS [vendor_id], 
+    [view_orders].[book_id] AS [book_id], 
+    [view_orders].[qty] AS [qty], 
+    [view_orders].[done_sel] AS [done_sel], 
+    [view_orders].[deal_date] AS [deal_date], 
+    [view_orders].[canceled] AS [canceled], 
+    [view_orders].[buyername] AS [buyername], 
+    [view_orders].[book_Title] AS [book_Title], 
+    [view_orders].[price] AS [price], 
+    [view_orders].[vendorname] AS [vendorname]
+    FROM [dbo].[view_orders] AS [view_orders]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="view_users" EntityType="Self.view_users" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [view_users].[Id] AS [Id], 
+    [view_users].[RealName] AS [RealName], 
+    [view_users].[Title] AS [Title], 
+    [view_users].[Email] AS [Email], 
+    [view_users].[Username] AS [Username], 
+    [view_users].[Password] AS [Password], 
+    [view_users].[IsAdmin] AS [IsAdmin], 
+    [view_users].[Active] AS [Active], 
+    [view_users].[Phone] AS [Phone], 
+    [view_users].[Address] AS [Address], 
+    [view_users].[UserType] AS [UserType], 
+    [view_users].[date_insert] AS [date_insert], 
+    [view_users].[last_update] AS [last_update], 
+    [view_users].[type_name] AS [type_name]
+    FROM [dbo].[view_users] AS [view_users]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

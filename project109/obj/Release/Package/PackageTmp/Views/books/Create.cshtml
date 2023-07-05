@@ -1,0 +1,153 @@
+﻿@model project109.Models.books
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+
+
+@using (Html.BeginForm("Create", "books", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Add New Book to Market</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.book_Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.book_Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.book_Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.book_cat, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.publisher_id, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.book_cat, "", new { @class = "text-danger" })
+                @Html.DropDownList("book_cat", null, "Select", htmlAttributes: new { @class = "form-control", data_val = "true", data_val_required = "Select Category" })
+            </div>
+        </div>
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.stock, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.stock, new { htmlAttributes = new { @class = "form-control", Value = "1" } })
+                    @Html.ValidationMessageFor(model => model.stock, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+            @Html.HiddenFor(model => model.stock, new { Value = "1" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.author_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @*@Html.EditorFor(model => model.author_id, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.ValidationMessageFor(model => model.author_id, "", new { @class = "text-danger" })
+                    @Html.DropDownList("author_id", null, "Select", htmlAttributes: new { @class = "form-control", data_val = "true", data_val_required = "Select Author" })
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.sold_by, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.sold_by, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.sold_by, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+            @Html.HiddenFor(model => model.sold_by, new { Value = Session["adminid"] })
+            <div class="form-group">
+                @Html.LabelFor(model => model.publisher_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @*@Html.EditorFor(model => model.publisher_id, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.ValidationMessageFor(model => model.publisher_id, "", new { @class = "text-danger" })
+                    @Html.DropDownList("publisher_id", null, "Select", htmlAttributes: new { @class = "form-control", data_val = "true", data_val_required = "Select Publisher" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.publishing_year, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.publishing_year, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.publishing_year, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.book_cover, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @*@Html.EditorFor(model => model.book_cover, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.TextBox("book_cover", "", new { type = "file", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.book_cover, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.book_softcopy, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @*@Html.EditorFor(model => model.book_softcopy, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.TextBox("book_softcopy", "", new { type = "file", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.book_softcopy, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.date_insert, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.date_insert, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.date_insert, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.last_update, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.last_update, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.last_update, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+            @Html.HiddenFor(model => model.date_insert, new { Value = System.DateTime.Now.ToShortDateString() })
+
+            @Html.HiddenFor(model => model.last_update, new { Value = System.DateTime.Now.ToShortDateString() })
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.active, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.active)
+                        @Html.ValidationMessageFor(model => model.active, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>*@
+            @Html.HiddenFor(model => model.active, new { Value = true })
+            <div class="form-group">
+                @Html.LabelFor(model => model.book_language, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.book_language, new { htmlAttributes = new { @class = "form-control", Value = "Arabic" } })
+                    @Html.ValidationMessageFor(model => model.book_language, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Add" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+}
+
+<div>
+    @Html.ActionLink("Go to your Control Panel", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,147 @@
+﻿@model project109.Models.view_books
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.book_Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cat_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cat_name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.author_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.author_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sold_by)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RealName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.publisher_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.publisher_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.publishing_year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.publishing_year)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.stock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stock)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.book_cover)
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.book_cover)*@
+            @{if (Model.book_cover != null)
+                {<img src="~/Content/images/Covers/@Model.book_cover" style="max-width:300px;" /> }
+                else
+                { <img src="~/Content/images/Covers/bookthumb.jpg" style="max-width:300px;" />}
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.book_softcopy)
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.book_softcopy)*@
+            @{if (Model.book_softcopy != null)
+                {<p><a href="~/Content/images/Docs/@Model.book_softcopy" target="_blank">Download</a></p> }
+                else
+                { <p>Not Available</p>}
+            }
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.book_language)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_language)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.date_insert)
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.date_insert)*@
+            @{var x = Convert.ToDateTime(Model.date_insert).ToShortDateString(); }
+            @Html.Raw(x)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.last_update)
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.last_update)*@
+            @{var y = Convert.ToDateTime(Model.last_update).ToShortDateString(); }
+            @Html.Raw(y)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.active)
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.active)*@
+            @{  if (Model.active == true)
+                {<p>Active</p>}
+                else
+                {<p>Not Active</p>}}
+        </dd>
+
+
+
+    </dl>
+</div>
+@*<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Go to Control Panel", "Index")
+</p>*@

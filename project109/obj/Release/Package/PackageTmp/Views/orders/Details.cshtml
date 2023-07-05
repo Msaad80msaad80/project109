@@ -1,0 +1,90 @@
+﻿@model project109.Models.orders
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>orders</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.order_date)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.order_date)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.buyer_id)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.buyer_id)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.vendor_id)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.vendor_id)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.book_id)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.book_id)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.qty)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.qty)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.done_sel)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.done_sel)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.deal_date)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.deal_date)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.canceled)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.canceled)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

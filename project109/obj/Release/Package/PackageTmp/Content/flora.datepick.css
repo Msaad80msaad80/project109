@@ -1,0 +1,202 @@
+.datepick {
+	BORDER-BOTTOM: #5781BF 1px solid;
+	BORDER-LEFT: #5781BF 1px solid;
+	BACKGROUND-COLOR: #DCE9EF;
+	FONT-FAMILY: Arial,Helvetica,Sans-serif;
+	COLOR: #000;
+	FONT-SIZE: 90%;
+	BORDER-TOP: #5781BF 1px solid;
+	BORDER-RIGHT: #5781BF 1px solid;
+	border-radius: 0.25em;
+	-moz-border-radius: 0.25em;
+	-webkit-border-radius: 0.25em
+}
+.datepick-rtl {
+	DIRECTION: rtl
+}
+.datepick-popup {
+	Z-INDEX: 1000
+}
+.datepick-disable {
+	Z-INDEX: 100; POSITION: absolute; FILTER: alpha(opacity=50); BACKGROUND-COLOR: white; opacity: 0.5
+}
+.datepick A {
+	COLOR: #000; TEXT-DECORATION: none
+}
+.datepick A.datepick-disabled {
+	COLOR: #888; CURSOR: auto
+}
+.datepick BUTTON {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; PADDING-BOTTOM: 0.12em; BACKGROUND-COLOR: #fc8; MARGIN: 0.25em; PADDING-LEFT: 0em; PADDING-RIGHT: 0em; BORDER-TOP: medium none; FONT-WEIGHT: bold; BORDER-RIGHT: medium none; PADDING-TOP: 0.12em; border-radius: 0.25em; -moz-border-radius: 0.25em; -webkit-border-radius: 0.25em
+}
+.datepick-nav {
+	BACKGROUND-COLOR: #DCE9EF; WIDTH: 100%; FLOAT: left; COLOR: #fff; FONT-SIZE: 90%; FONT-WEIGHT: bold
+}
+.datepick-ctrl {
+	BACKGROUND-COLOR: #DCE9EF; WIDTH: 100%; FLOAT: left; COLOR: #fff; FONT-SIZE: 90%; FONT-WEIGHT: bold
+}
+.datepick-ctrl {
+	BACKGROUND-COLOR: #5781BF
+}
+.datepick-cmd {
+	WIDTH: 30%
+}
+.datepick-cmd:hover {
+	BACKGROUND-COLOR: #CCC
+}
+.datepick-ctrl .datepick-cmd:hover {
+	BACKGROUND-COLOR: #6180BA
+}
+.datepick-cmd-prevJump {
+	WIDTH: 8%
+}
+.datepick-cmd-nextJump {
+	WIDTH: 8%
+}
+A.datepick-cmd {
+	HEIGHT: 1.5em
+}
+BUTTON.datepick-cmd {
+	TEXT-ALIGN: center
+}
+.datepick-cmd-prev {
+	PADDING-LEFT: 2%; FLOAT: left
+}
+.datepick-cmd-prevJump {
+	PADDING-LEFT: 2%; FLOAT: left
+}
+.datepick-cmd-clear {
+	PADDING-LEFT: 2%; FLOAT: left
+}
+.datepick-cmd-current {
+	TEXT-ALIGN: center; WIDTH: 35%; FLOAT: left
+}
+.datepick-cmd-today {
+	TEXT-ALIGN: center; WIDTH: 35%; FLOAT: left
+}
+.datepick-cmd-next {
+	TEXT-ALIGN: right; PADDING-RIGHT: 2%; FLOAT: right
+}
+.datepick-cmd-nextJump {
+	TEXT-ALIGN: right; PADDING-RIGHT: 2%; FLOAT: right
+}
+.datepick-cmd-close {
+	TEXT-ALIGN: right; PADDING-RIGHT: 2%; FLOAT: right
+}
+.datepick-rtl .datepick-cmd-prev {
+	TEXT-ALIGN: right; PADDING-LEFT: 0%; PADDING-RIGHT: 2%; FLOAT: right
+}
+.datepick-rtl .datepick-cmd-prevJump {
+	TEXT-ALIGN: right; PADDING-LEFT: 0%; PADDING-RIGHT: 2%; FLOAT: right
+}
+.datepick-rtl .datepick-cmd-clear {
+	TEXT-ALIGN: right; PADDING-LEFT: 0%; PADDING-RIGHT: 2%; FLOAT: right
+}
+.datepick-rtl .datepick-cmd-current {
+	FLOAT: right
+}
+.datepick-rtl .datepick-cmd-today {
+	FLOAT: right
+}
+.datepick-rtl .datepick-cmd-next {
+	TEXT-ALIGN: left; PADDING-LEFT: 2%; PADDING-RIGHT: 0%; FLOAT: left
+}
+.datepick-rtl .datepick-cmd-nextJump {
+	TEXT-ALIGN: left; PADDING-LEFT: 2%; PADDING-RIGHT: 0%; FLOAT: left
+}
+.datepick-rtl .datepick-cmd-close {
+	TEXT-ALIGN: left; PADDING-LEFT: 2%; PADDING-RIGHT: 0%; FLOAT: left
+}
+.datepick-month-nav {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #CCCCCC; FLOAT: left
+}
+.datepick-month-nav DIV {
+	PADDING-BOTTOM: 1%; MARGIN: 1%; PADDING-LEFT: 1%; WIDTH: 12.5%; PADDING-RIGHT: 1%; FLOAT: left; PADDING-TOP: 1%
+}
+.datepick-month-nav SPAN {
+	COLOR: #888
+}
+.datepick-month-row {
+	CLEAR: left
+}
+.datepick-month {
+	BORDER-BOTTOM: #0F87FF 1px solid; TEXT-ALIGN: center; BORDER-LEFT: #0F87FF 1px solid; WIDTH: 15em; FLOAT: left; BORDER-TOP: #0F87FF 1px solid; BORDER-RIGHT: #0F87FF 1px solid
+}
+.datepick-month-header {
+	BACKGROUND-COLOR: #0F87FF; HEIGHT: 1.5em; COLOR: #fff; FONT-WEIGHT: bold
+}
+.datepick-month-header SELECT {
+	BACKGROUND-COLOR: #0F87FF; HEIGHT: 1.5em; COLOR: #fff; FONT-WEIGHT: bold
+}
+.datepick-month-header INPUT {
+	BACKGROUND-COLOR: #0F87FF; HEIGHT: 1.5em; COLOR: #fff; FONT-WEIGHT: bold
+}
+.datepick-month-header SELECT {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; HEIGHT: 1.4em; BORDER-TOP: medium none; BORDER-RIGHT: medium none
+}
+.datepick-month-header INPUT {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; HEIGHT: 1.4em; BORDER-TOP: medium none; BORDER-RIGHT: medium none
+}
+.datepick-month-header INPUT {
+	POSITION: absolute; DISPLAY: none
+}
+.datepick-month TABLE {
+	WIDTH: 100%; BORDER-COLLAPSE: collapse
+}
+.datepick-month THEAD {
+	BORDER-BOTTOM: #aaa 1px solid
+}
+.datepick-month TH {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 0em; MARGIN: 0em; PADDING-LEFT: 0em; PADDING-RIGHT: 0em; FONT-WEIGHT: normal; PADDING-TOP: 0em
+}
+.datepick-month TD {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 0em; MARGIN: 0em; PADDING-LEFT: 0em; PADDING-RIGHT: 0em; FONT-WEIGHT: normal; PADDING-TOP: 0em
+}
+.datepick-month TH {
+	BORDER-BOTTOM: #CCCCCC 1px solid; BORDER-LEFT: #CCCCCC 1px solid; BORDER-TOP: #CCCCCC 1px solid; BORDER-RIGHT: #CCCCCC 1px solid
+}
+.datepick-month TH {
+	BORDER-BOTTOM: #CCCCCC 1px solid; BORDER-LEFT: #CCCCCC 1px solid; BACKGROUND-COLOR: #CCCCCC; COLOR: #000; BORDER-TOP: #CCCCCC 1px solid; BORDER-RIGHT: #CCCCCC 1px solid
+}
+.datepick-month TH A {
+	BORDER-BOTTOM: #CCCCCC 1px solid; BORDER-LEFT: #CCCCCC 1px solid; BACKGROUND-COLOR: #CCCCCC; COLOR: #000; BORDER-TOP: #CCCCCC 1px solid; BORDER-RIGHT: #CCCCCC 1px solid
+}
+.datepick-month TD {
+	BORDER-BOTTOM: #CCCCCC 1px solid; BORDER-LEFT: #CCCCCC 1px solid; BACKGROUND-COLOR: #fff; COLOR: #666; BORDER-TOP: #CCCCCC 1px solid; BORDER-RIGHT: #CCCCCC 1px solid
+}
+.datepick-month TD.datepick-week * {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; BACKGROUND-COLOR: #CCCCCC; COLOR: #666; BORDER-TOP: medium none; BORDER-RIGHT: medium none
+}
+.datepick-month A {
+	PADDING-BOTTOM: 0.12em; PADDING-LEFT: 0em; WIDTH: 100%; PADDING-RIGHT: 0em; DISPLAY: block; TEXT-DECORATION: none; PADDING-TOP: 0.12em
+}
+.datepick-month SPAN {
+	PADDING-BOTTOM: 0.12em; PADDING-LEFT: 0em; WIDTH: 100%; PADDING-RIGHT: 0em; DISPLAY: block; PADDING-TOP: 0.12em
+}
+.datepick-month TD SPAN {
+	COLOR: #888
+}
+.datepick-month TD .datepick-other-month {
+	BACKGROUND-COLOR: #DCE9EF
+}
+.datepick-month TD .datepick-weekend {
+	BACKGROUND-COLOR: #DCE9EF
+}
+.datepick-month TD .datepick-today {
+	BACKGROUND-COLOR: #CCCCCC
+}
+.datepick-month TD .datepick-highlight {
+	BACKGROUND-COLOR: #fc8
+}
+.datepick-month TD .datepick-selected {
+	BACKGROUND-COLOR: #5781BF; COLOR: #fff
+}
+.datepick-status {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #CCCCCC; CLEAR: both
+}
+.datepick-clear-fix {
+	CLEAR: both
+}
+.datepick-cover {
+	Z-INDEX: -1; POSITION: absolute; FILTER: mask(); WIDTH: 100px; DISPLAY: block; HEIGHT: 100px; TOP: -1px; LEFT: -1px
+}

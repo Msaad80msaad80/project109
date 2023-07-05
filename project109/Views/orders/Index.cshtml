@@ -1,0 +1,108 @@
+﻿@model IEnumerable<project109.Models.view_orders>
+
+@{
+    ViewBag.Title = "Orders";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Orders List</title>
+</head>
+<body>
+    @*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+    <br>
+    <p><strong>Orders List</strong></p>
+    <table class="table">
+        <tr>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.buyername)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vendorname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.book_Title)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.qty)
+            </th>*@
+           
+            <th>
+    @Html.DisplayNameFor(model => model.order_date)
+</th>
+            <th>
+                @Html.DisplayNameFor(model => model.deal_date)
+            </th>
+            <th>
+    @Html.DisplayNameFor(model => model.done_sel)
+</th>
+            <th>
+                @Html.DisplayNameFor(model => model.canceled)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        string trclass = "";
+        if (item.done_sel == true) { trclass = "alert-success"; } else if (item.canceled == true) { trclass = "alert-warning"; } else { trclass = ""; }
+        <tr class="@trclass">
+
+            <td>
+                @Html.DisplayFor(modelItem => item.buyername)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vendorname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.book_Title)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.qty)
+            </td>*@
+            
+            <td>
+    @*@Html.DisplayFor(modelItem => item.order_date)*@
+    @{var x = Convert.ToDateTime(item.order_date).ToShortDateString(); }
+    @Html.Raw(item.order_date==null?"":x)
+</td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.deal_date)*@
+                @{var y = Convert.ToDateTime(item.deal_date).ToShortDateString(); }
+                @Html.Raw(item.deal_date==null?"":y)
+            </td>
+            <td>
+    @*@Html.DisplayFor(modelItem => item.done_sel)*@
+    @{  if (item.done_sel == true)
+                {<p>Request Done</p>}
+                else
+                {<p></p>}}
+</td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.canceled)*@
+                @{  if (item.canceled == true)
+                {<p>Rejected</p>}
+                else
+                {<p></p>}}
+            </td>
+            <td>
+               @if ((Convert.ToInt32(item.buyer_id) != Convert.ToInt32(Session["adminid"]))&&(item.done_sel != true && item.canceled != true))
+               {
+@Html.ActionLink("Action", "Edit", new { id = item.Id })
+                }
+
+                @*|
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

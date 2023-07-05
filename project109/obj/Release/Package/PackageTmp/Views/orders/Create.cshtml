@@ -1,0 +1,114 @@
+﻿@model project109.Models.orders
+
+@{
+    ViewBag.Title = "Add reuest";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    
+    
+    @using (Html.BeginForm()) 
+    {
+        @Html.AntiForgeryToken()
+        
+        <div class="form-horizontal">
+            <h4>Create Order</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+
+
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.order_date, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.order_date, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.order_date, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+            @Html.HiddenFor(model => model.order_date, new { Value = System.DateTime.Now.ToShortDateString() })
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.buyer_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.buyer_id, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.buyer_id, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+    @Html.HiddenFor(model => model.buyer_id, new { Value = Session["adminid"] })
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.book_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @ViewBag.bookname
+                    @*@Html.ValidationMessageFor(model => model.book_id, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+            @Html.HiddenFor(model => model.book_id, new { Value = ViewBag.bookid })
+            <div class="form-group">
+                @Html.LabelFor(model => model.vendor_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @ViewBag.vendorname
+                    @*@Html.ValidationMessageFor(model => model.vendor_id, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+            @Html.HiddenFor(model => model.vendor_id, new { Value = ViewBag.vendorid })
+
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.qty, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.qty, new { htmlAttributes = new { @class = "form-control", Value = "1" } })
+                    @Html.ValidationMessageFor(model => model.qty, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+    @Html.HiddenFor(model => model.qty, new { Value = "1" })
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.done_sel, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.done_sel)
+                        @Html.ValidationMessageFor(model => model.done_sel, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>*@
+            @Html.HiddenFor(model => model.done_sel, new { Value = false })
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.deal_date, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.deal_date, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.deal_date, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+            @Html.HiddenFor(model => model.deal_date, new { Value = System.DateTime.Now.ToShortDateString() })
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.canceled, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.canceled)
+                        @Html.ValidationMessageFor(model => model.canceled, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>*@
+    @Html.HiddenFor(model => model.canceled, new { Value = false })
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Request Now" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+    
+    @*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+</body>
+</html>

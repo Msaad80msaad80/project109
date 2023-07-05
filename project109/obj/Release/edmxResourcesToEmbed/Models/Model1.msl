@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="msaadtestModelStoreContainer" CdmEntityContainer="msaadtestEntities">
+    <EntitySetMapping Name="authors">
+      <EntityTypeMapping TypeName="msaadtestModel.authors">
+        <MappingFragment StoreEntitySet="authors">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="author_name" ColumnName="author_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="books">
+      <EntityTypeMapping TypeName="msaadtestModel.books">
+        <MappingFragment StoreEntitySet="books">
+          <ScalarProperty Name="book_cat" ColumnName="book_cat" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="book_Title" ColumnName="book_Title" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="author_id" ColumnName="author_id" />
+          <ScalarProperty Name="sold_by" ColumnName="sold_by" />
+          <ScalarProperty Name="publisher_id" ColumnName="publisher_id" />
+          <ScalarProperty Name="publishing_year" ColumnName="publishing_year" />
+          <ScalarProperty Name="stock" ColumnName="stock" />
+          <ScalarProperty Name="book_cover" ColumnName="book_cover" />
+          <ScalarProperty Name="book_softcopy" ColumnName="book_softcopy" />
+          <ScalarProperty Name="date_insert" ColumnName="date_insert" />
+          <ScalarProperty Name="last_update" ColumnName="last_update" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="book_language" ColumnName="book_language" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orders">
+      <EntityTypeMapping TypeName="msaadtestModel.orders">
+        <MappingFragment StoreEntitySet="orders">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="order_date" ColumnName="order_date" />
+          <ScalarProperty Name="buyer_id" ColumnName="buyer_id" />
+          <ScalarProperty Name="vendor_id" ColumnName="vendor_id" />
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+          <ScalarProperty Name="done_sel" ColumnName="done_sel" />
+          <ScalarProperty Name="deal_date" ColumnName="deal_date" />
+          <ScalarProperty Name="canceled" ColumnName="canceled" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="publishers">
+      <EntityTypeMapping TypeName="msaadtestModel.publishers">
+        <MappingFragment StoreEntitySet="publishers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="publisher_name" ColumnName="publisher_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users_types">
+      <EntityTypeMapping TypeName="msaadtestModel.users_types">
+        <MappingFragment StoreEntitySet="users_types">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="type_name" ColumnName="type_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersAdmins">
+      <EntityTypeMapping TypeName="msaadtestModel.UsersAdmins">
+        <MappingFragment StoreEntitySet="UsersAdmins">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RealName" ColumnName="RealName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="date_insert" ColumnName="date_insert" />
+          <ScalarProperty Name="last_update" ColumnName="last_update" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="view_books">
+      <EntityTypeMapping TypeName="msaadtestModel.view_books">
+        <MappingFragment StoreEntitySet="view_books">
+          <ScalarProperty Name="cat_name" ColumnName="cat_name" />
+          <ScalarProperty Name="book_cat" ColumnName="book_cat" />
+          <ScalarProperty Name="publisher_name" ColumnName="publisher_name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="book_Title" ColumnName="book_Title" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="author_id" ColumnName="author_id" />
+          <ScalarProperty Name="sold_by" ColumnName="sold_by" />
+          <ScalarProperty Name="publisher_id" ColumnName="publisher_id" />
+          <ScalarProperty Name="publishing_year" ColumnName="publishing_year" />
+          <ScalarProperty Name="stock" ColumnName="stock" />
+          <ScalarProperty Name="book_cover" ColumnName="book_cover" />
+          <ScalarProperty Name="book_softcopy" ColumnName="book_softcopy" />
+          <ScalarProperty Name="date_insert" ColumnName="date_insert" />
+          <ScalarProperty Name="last_update" ColumnName="last_update" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="book_language" ColumnName="book_language" />
+          <ScalarProperty Name="author_name" ColumnName="author_name" />
+          <ScalarProperty Name="RealName" ColumnName="RealName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="view_orders">
+      <EntityTypeMapping TypeName="msaadtestModel.view_orders">
+        <MappingFragment StoreEntitySet="view_orders">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="order_date" ColumnName="order_date" />
+          <ScalarProperty Name="buyer_id" ColumnName="buyer_id" />
+          <ScalarProperty Name="vendor_id" ColumnName="vendor_id" />
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+          <ScalarProperty Name="done_sel" ColumnName="done_sel" />
+          <ScalarProperty Name="deal_date" ColumnName="deal_date" />
+          <ScalarProperty Name="canceled" ColumnName="canceled" />
+          <ScalarProperty Name="buyername" ColumnName="buyername" />
+          <ScalarProperty Name="book_Title" ColumnName="book_Title" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="vendorname" ColumnName="vendorname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="view_users">
+      <EntityTypeMapping TypeName="msaadtestModel.view_users">
+        <MappingFragment StoreEntitySet="view_users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RealName" ColumnName="RealName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="date_insert" ColumnName="date_insert" />
+          <ScalarProperty Name="last_update" ColumnName="last_update" />
+          <ScalarProperty Name="type_name" ColumnName="type_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="books_categories">
+      <EntityTypeMapping TypeName="msaadtestModel.books_categories">
+        <MappingFragment StoreEntitySet="books_categories">
+          <ScalarProperty Name="cat_name" ColumnName="cat_name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
